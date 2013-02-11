@@ -14,9 +14,10 @@
 
 -(id)initAndLoadPlaylist{
     if(self = [super init]){
-        self.catalog = [[BCCatalog alloc] initWithToken:@"nFCuXstvl910WWpPnCeFlDTNrpXA5mXOO9GPkuTCoLKRyYpPF1ikig.."];
         
-        //PlaylistCollectionDataSource __weak *weakself = self;
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaylistLoading" object:self];
+        
+        self.catalog = [[BCCatalog alloc] initWithToken:@"nFCuXstvl910WWpPnCeFlDTNrpXA5mXOO9GPkuTCoLKRyYpPF1ikig.."];
         
         [self.catalog findPlaylistByID:@"2149006311001" options:nil callBlock:^(BCError *error, BCPlaylist *bcPlaylist) {
             if(!error){

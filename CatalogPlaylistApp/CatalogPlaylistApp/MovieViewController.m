@@ -8,34 +8,26 @@
 
 #import "MovieViewController.h"
 #import "BCEventLogger.h"
-@interface MovieViewController ()
-@property (strong, nonatomic) BCEventLogger* logger;
-@end
 
 @implementation MovieViewController
 
 @synthesize video;
 
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
-{
-    self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil];
-    if (self) {
-        // Custom initialization
-    }
-    return self;
-}
-
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+    
+    //Initize Player
     self.player = [[BCQueuePlayer alloc] initWithVideo:self.video];
+    
+    //Size the player
     self.player.view.frame = self.playerView.frame;
     self.player.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    
     [self.playerView addSubview:self.player.view];
     
-    //Logging
-    self.logger = [[BCEventLogger alloc] initWithEventEmitter:self.player.playbackEmitter];
+    //Set the nav bar title
+    self.navigationItem.title = [video.properties objectForKey:@"name"];
+    
     //Play on player
     [self.player play];
 	 

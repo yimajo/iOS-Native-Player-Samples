@@ -13,26 +13,42 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-    //Set up to recieve a notification when the playlist loads
+    
+    //Set up notifications for understanding when the datasource is loaded
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLoadingPlaylist:) name:@"PlaylistLoaded" object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSpinner:) name:@"PlaylistLoading" object:nil];
+    
+    //Load Playlist
     self.dataSource = [[PlaylistCollectionDataSource alloc] initAndLoadPlaylist];
 }
 
+/**
+ * When the playlist is loaded, set the data source of the collection view
+ */
 -(void)finishLoadingPlaylist:(NSNotification *)notification
 {
     if([[notification name] isEqualToString:@"PlaylistLoaded"]){
         self.playlistView.dataSource = self.dataSource;
+        [self hideSpinner];
     }
 }
 
-- (void)showSpinner
+/**
+ * Utility method to create/show the spinner
+ */
+- (void)showSpinner:(NSNotification *)notification
 {
     if(!self.spinner){
         self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+        self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
         [self.view addSubview:self.spinner];
     }
     [self.spinner startAnimating];
 }
+
+/**
+ * Utility method to hide the spinner
+ */
 
 - (void)hideSpinner
 {
@@ -40,6 +56,10 @@
         [self.spinner stopAnimating];
     }
 }
+
+/**
+ * Prepare to transfer to the next View Controller by setting the selected movie
+ */
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {

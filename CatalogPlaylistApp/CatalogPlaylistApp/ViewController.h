@@ -16,9 +16,6 @@
 @property (strong, nonatomic) IBOutlet UICollectionView *playlistView;
 @property (strong, nonatomic) PlaylistCollectionDataSource *dataSource;
 
-- (void)showSpinner;
-- (void)hideSpinner;
-
 - (void)finishLoadingPlaylist:(NSNotification *)notification;
 
 @end
