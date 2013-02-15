@@ -7,13 +7,7 @@
 //
 #import <QuartzCore/QuartzCore.h>
 #import <AVFoundation/AVFoundation.h>
-
 #import "BCComponent.h"
-#import "BCEvent.h"
-#import "BCRegisteringEventEmitter.h"
-#import "BCQueueDisplay.h"
-#import "BCPlayerView.h"
-#import "VideoUtils.h"
 
 //Utility macro for converting from Hex to UIColor
 #define UIColorFromRGB(rgbValue) [UIColor colorWithRed:((float)((rgbValue & 0xFF0000) >> 16))/255.0 green:((float)((rgbValue & 0xFF00) >> 8))/255.0 blue:((float)(rgbValue & 0xFF))/255.0 alpha:1.0]
@@ -43,6 +37,6 @@
 - (id)initWithEventEmitter:(BCEventEmitter *)eventEmitter view:(UIView *)view;
 
 //Initialization for drawing the control view
-- (void)initializeControlView:(UIView *)view;
+- (void)configureControlView:(UIView *)view;
 
 @end

@@ -7,13 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PlaylistCollectionDataSource.h"
-#import "MovieViewController.h"
+@class PlaylistCollectionDataSource;
 
 @interface ViewController : UICollectionViewController
 
-@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) IBOutlet UICollectionView *playlistView;
+
+@property (strong, nonatomic) UIActivityIndicatorView *spinner;
 @property (strong, nonatomic) PlaylistCollectionDataSource *dataSource;
 
 - (void)finishLoadingPlaylist:(NSNotification *)notification;

@@ -7,18 +7,12 @@
 //
 
 #import "ViewController.h"
-
-@interface ViewController ()
-
-@end
+#import "BCVideo.h"
+#import "BCQueuePlayer.h"
+#import "BCUIControls.h"
+#import "BCPlaylist.h"
 
 @implementation ViewController
-
-@synthesize mainView;
-@synthesize playerView;
-@synthesize controlView;
-@synthesize player;
-@synthesize controls;
 
 - (void)viewDidLoad
 {
@@ -38,41 +32,29 @@
     
     videos = [NSArray arrayWithObjects:mp4Video, movVideo, hlsVideo, nil];
     
-    [self initializePlayer:videos];
+    [self configurePlayer:videos];
     
 }
 
-- (void)willRotateToInterfaceOrientation:(UIInterfaceOrientation)toInterfaceOrientation duration:(NSTimeInterval)duration
-{
-    [super willRotateToInterfaceOrientation:toInterfaceOrientation duration:duration];
-    
-}
-
--(void)initializePlayer:(NSArray *)videos
+- (void)configurePlayer:(NSArray *)videos
 {
     //Create a playlist
     BCPlaylist *playlist = [[BCPlaylist alloc] initWithVideos:videos];
     
     //Initialize with a playlist
-    player = [[BCQueuePlayer alloc] initWithPlaylist:playlist];
+    self.player = [[BCQueuePlayer alloc] initWithPlaylist:playlist];
 
     //Add player to view
-    player.view.frame = playerView.frame;
-    player.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
-    [playerView addSubview:player.view];
+    self.player.view.frame = self.playerView.frame;
+    self.player.view.autoresizingMask = UIViewAutoresizingFlexibleHeight|UIViewAutoresizingFlexibleWidth;
+    [self.playerView addSubview:self.player.view];
     
     //Add UI Controls
-    controls  = [[BCUIControls alloc] initWithEventEmitter:player.playbackEmitter andView:controlView];
+    self.controls  = [[BCUIControls alloc] initWithEventEmitter:self.player.playbackEmitter andView:self.controlView];
     
     //Play on Player
-    [player play];
+    [self.player play];
     
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

@@ -7,10 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "BCPlaylist.h"
-#import "BCCatalog.h"
-#import "BCVideo.h"
-#import "BCError.h"
+@class BCCatalog;
+@class BCPlaylist;
 
 @interface PlaylistCollectionDataSource : NSObject <UICollectionViewDataSource>
 
@@ -19,4 +17,5 @@
 
 -(id)initAndLoadPlaylist;
 -(NSString *)makeReadable:(NSNumber *)number;
+
 @end

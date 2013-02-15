@@ -7,19 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCVideo.h"
-#import "BCQueuePlayer.h"
-#import "BCUIControls.h"
-#import "BCPlaylist.h"
+
+@class BCQueuePlayer;
+@class BCUIControls;
 
 @interface ViewController : UIViewController
 
-@property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *playerView;
 @property (strong, nonatomic) IBOutlet UIView *controlView;
 @property (strong, nonatomic) BCQueuePlayer *player;
 @property (strong, nonatomic) BCUIControls *controls;
 
-- (void) initializePlayer:(NSArray *)videos;
+- (void) configurePlayer:(NSArray *)videos;
 
 @end

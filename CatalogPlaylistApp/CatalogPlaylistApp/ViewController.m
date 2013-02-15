@@ -7,6 +7,9 @@
 //
 
 #import "ViewController.h"
+#import "PlaylistCollectionDataSource.h"
+#import "MovieViewController.h"
+#import "BCPlaylist.h"
 
 @implementation ViewController
 
@@ -60,14 +63,16 @@
 /**
  * Prepare to transfer to the next View Controller by setting the selected movie
  */
-
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"showMovie"]){
+    if([[segue identifier] isEqualToString:@"showMovie"])
+    {
+        //Get the video from selected index
         NSIndexPath *selectedIndex = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];
         BCPlaylist *playlist = [(PlaylistCollectionDataSource *) self.collectionView.dataSource playlist];
         BCVideo *video = [playlist.videos objectAtIndex:selectedIndex.item];
         
+        //Set the video for the next VC
         MovieViewController *mvc = [segue destinationViewController];
         mvc.video = video;
     }

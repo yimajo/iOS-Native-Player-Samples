@@ -8,10 +8,11 @@
 
 #import "MovieViewController.h"
 #import "BCEventLogger.h"
+#import "BCVideo.h"
+#import "BCQueuePlayer.h"
 
 @implementation MovieViewController
 
-@synthesize video;
 
 - (void)viewDidLoad
 {
@@ -26,17 +27,11 @@
     [self.playerView addSubview:self.player.view];
     
     //Set the nav bar title
-    self.navigationItem.title = [video.properties objectForKey:@"name"];
+    self.navigationItem.title = [self.video.properties objectForKey:@"name"];
     
     //Play on player
     [self.player play];
 	 
-}
-
-- (void)didReceiveMemoryWarning
-{
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
 @end

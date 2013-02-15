@@ -7,13 +7,14 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCVideo.h"
-#import "BCQueuePlayer.h"
+@class BCVideo;
+@class BCQueuePlayer;
 
 @interface MovieViewController : UIViewController
 
+@property (strong, nonatomic) IBOutlet UIView *playerView;
+
 @property (nonatomic, strong) BCVideo *video;
 @property (nonatomic, strong) BCQueuePlayer *player;
-@property (strong, nonatomic) IBOutlet UIView *playerView;
 
 @end

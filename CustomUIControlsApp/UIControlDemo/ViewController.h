@@ -7,10 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCVideo.h"
-#import "BCQueuePlayer.h"
-#import "CustomUIControls.h"
 
+@class BCQueuePlayer;
+@class CustomUIControls;
 
 @interface ViewController : UIViewController
 
@@ -18,6 +17,6 @@
 @property (strong, nonatomic) BCQueuePlayer *player;
 @property (strong, nonatomic) CustomUIControls *controls;
 
-- (void)initializePlayerWithVideo;
+- (void)configurePlayerWithVideo;
 
 @end

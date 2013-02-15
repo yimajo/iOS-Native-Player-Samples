@@ -596,7 +596,6 @@
 				INFOPLIST_FILE = "SimpleVideoApp/SimpleVideoApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/BCiOSSDK/Libraries\"",
 					"\"$(SRCROOT)/../BCiOSSDK-543/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -612,7 +611,6 @@
 				INFOPLIST_FILE = "SimpleVideoApp/SimpleVideoApp-Info.plist";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/BCiOSSDK/Libraries\"",
 					"\"$(SRCROOT)/../BCiOSSDK-543/Libraries\"",
 				);
 				PRODUCT_NAME = "$(TARGET_NAME)";

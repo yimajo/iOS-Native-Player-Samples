@@ -7,10 +7,13 @@
 //
 
 #import "CustomUIControls.h"
+#import "BCEvent.h"
+#import "BCRegisteringEventEmitter.h"
+#import "BCQueueDisplay.h"
+#import "BCPlayerView.h"
+#import "VideoUtils.h"
 
 @implementation CustomUIControls
-
-@synthesize masterColor;
 
 #pragma mark Important Methods to Override
 
@@ -30,7 +33,6 @@
         
         //Show Controls
         [weakself.emitter emit:BCEventShowControls];
-        
     }];
     
     //When the video pauses, enable/disable buttons
@@ -43,7 +45,8 @@
     [self.emitter on:BCEventVideoDurationChanged callBlock:^(BCEvent *event) {
         AVPlayerItem *item = [event.details objectForKey:@"playerItem"];
         
-        if(item.duration.timescale){
+        if (CMTIME_IS_VALID(item.duration))
+        {
             weakself.duration = item.duration;
             weakself.durationLabel.text = [VideoUtils makeTimeReadable:CMTimeGetSeconds(weakself.duration)];
         }
@@ -118,15 +121,15 @@
     if(self = [super initWithEventEmitter:eventEmitter])
     {
         [[NSBundle mainBundle] loadNibNamed:@"UIControls" owner:self options:nil];
-        masterColor = UIColorFromRGB(0x0099CC);
+        self.masterColor = UIColorFromRGB(0x0099CC);
         
-        [self initializeControlView:view];
+        [self configureControlView:view];
     }
     
     return self;
 }
 
-- (void) initializeControlView:(UIView *)view
+- (void) configureControlView:(UIView *)view
 {
     //Position and center
     self.controlsView.autoresizingMask = (UIViewAutoresizingFlexibleLeftMargin | UIViewAutoresizingFlexibleRightMargin | UIViewAutoresizingFlexibleTopMargin);
@@ -139,29 +142,32 @@
     
     //Play Button
     [self outlineObject:self.playButton];
-    [self.playButton setTitleColor:masterColor forState:UIControlStateNormal];
+    [self.playButton setTitleColor:self.masterColor forState:UIControlStateNormal];
     [self.playButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     //Pause Button
     [self outlineObject:self.pauseButton];
-    [self.pauseButton setTitleColor:masterColor forState:UIControlStateNormal];
+    [self.pauseButton setTitleColor:self.masterColor forState:UIControlStateNormal];
     [self.pauseButton setTitleColor:[UIColor grayColor] forState:UIControlStateDisabled];
     
     //Add View
     [view addSubview:self.controlsView];
 }
 
-- (void) outlineObject:(UIView *)view
+- (void)outlineObject:(UIView *)view
 {
     view.layer.borderWidth = 2.0f;
-    view.layer.borderColor = masterColor.CGColor;
+    view.layer.borderColor = self.masterColor.CGColor;
 }
 
-- (IBAction)playButtonTouchUpInside:(id)sender {
+- (IBAction)playButtonTouchUpInside:(id)sender
+{
     [self.emitter emit:BCEventPlay];
 }
 
-- (IBAction)pauseButtonTouchUpInside:(id)sender {
+- (IBAction)pauseButtonTouchUpInside:(id)sender
+{
     [self.emitter emit:BCEventPause];
 }
+
 @end
