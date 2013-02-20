@@ -11,10 +11,8 @@
 #import <AVFoundation/AVFoundation.h>
 #import <MediaPlayer/MediaPlayer.h>
 #import "BCComponent.h"
-#import "BCEvent.h"
-#import "BCEventEmitter.h"
-#import "BCRegisteringEventEmitter.h"
-#import "VideoUtils.h"
+
+@class BCEventEmitter;
 
 @interface AppleControls : BCComponent
 

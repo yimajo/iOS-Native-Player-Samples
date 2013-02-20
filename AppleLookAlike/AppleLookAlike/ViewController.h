@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "BCQueuePlayer.h"
-#import "BCVideo.h"
-#import "AppleControls.h"
+@class BCQueuePlayer;
+@class BCVideo;
+@class AppleControls;
 
 @interface ViewController : UIViewController
 
@@ -17,4 +17,5 @@
 @property (strong, nonatomic) BCQueuePlayer *player;
 @property (strong, nonatomic) BCVideo *video;
 @property (strong, nonatomic) AppleControls *controls;
+
 @end

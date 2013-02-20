@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		95216BDB16CC15BD00878EF8 /* fontawesome-webfont.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 95216BDA16CC15BD00878EF8 /* fontawesome-webfont.ttf */; };
 		95216BDE16CD370200878EF8 /* VideoUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 95216BDD16CD335300878EF8 /* VideoUtils.m */; };
 		95216BEC16CD6FE100878EF8 /* exit-fullscreen.png in Resources */ = {isa = PBXBuildFile; fileRef = 95216BE016CD6FE100878EF8 /* exit-fullscreen.png */; };
 		95216BED16CD6FE100878EF8 /* exit-fullscreen@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 95216BE116CD6FE100878EF8 /* exit-fullscreen@2x.png */; };
@@ -87,7 +86,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		95216BDA16CC15BD00878EF8 /* fontawesome-webfont.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "fontawesome-webfont.ttf"; sourceTree = "<group>"; };
 		95216BDC16CD335300878EF8 /* VideoUtils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = VideoUtils.h; sourceTree = "<group>"; };
 		95216BDD16CD335300878EF8 /* VideoUtils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = VideoUtils.m; sourceTree = "<group>"; };
 		95216BE016CD6FE100878EF8 /* exit-fullscreen.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "exit-fullscreen.png"; sourceTree = "<group>"; };
@@ -305,7 +303,6 @@
 			isa = PBXGroup;
 			children = (
 				95216BDF16CD6FB900878EF8 /* images */,
-				95216BDA16CC15BD00878EF8 /* fontawesome-webfont.ttf */,
 				9552055C16CA898C00AF6D35 /* MainStoryboard_iPhone.storyboard */,
 				9552055F16CA898C00AF6D35 /* MainStoryboard_iPad.storyboard */,
 				955205F116CA8B4B00AF6D35 /* iOSLookAlikeMovieControls.xib */,
@@ -559,7 +556,6 @@
 				955205E616CA8A9500AF6D35 /* play_btn.png in Resources */,
 				955205E716CA8A9500AF6D35 /* thumb.png in Resources */,
 				955205F216CA8B4B00AF6D35 /* iOSLookAlikeMovieControls.xib in Resources */,
-				95216BDB16CC15BD00878EF8 /* fontawesome-webfont.ttf in Resources */,
 				95216BEC16CD6FE100878EF8 /* exit-fullscreen.png in Resources */,
 				95216BED16CD6FE100878EF8 /* exit-fullscreen@2x.png in Resources */,
 				95216BEE16CD6FE100878EF8 /* handle.png in Resources */,

@@ -7,12 +7,17 @@
 //
 
 #import "AppleControls.h"
+#import "BCEvent.h"
+#import "BCEventEmitter.h"
+#import "BCRegisteringEventEmitter.h"
+#import "VideoUtils.h"
 
 @implementation AppleControls
 
 #pragma mark control actions
 
-- (IBAction)handleTap:(UITapGestureRecognizer*) recognizer {
+- (IBAction)handleTap:(UITapGestureRecognizer*) recognizer
+{
     [self handleTimer];
     
     CGPoint location_bottom = [recognizer locationInView:self.bottomToolbar];
@@ -33,7 +38,8 @@
     }
 }
 
-- (IBAction)playPauseButtonPressed:(id)sender {
+- (IBAction)playPauseButtonPressed:(id)sender
+{
     if(self.isPaused)
     {
         [self.emitter emit:BCEventPlay];
@@ -46,23 +52,34 @@
     }
 }
 
-- (IBAction)skipForwardButtonPressed:(id)sender {
-    //How do we know that we can advance the queue?
+// ???: How do we know that we can advance the queue?
+- (IBAction)skipForwardButtonPressed:(id)sender
+{
     [self.emitter emit:BCEventAdvanceQueue];
 }
 
-- (IBAction)skipBackwardsButtonPressed:(id)sender {
+- (IBAction)skipBackwardsButtonPressed:(id)sender
+{
     NSValue *zero_time =  [NSValue valueWithCMTime:kCMTimeZero];
     NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys: zero_time, @"time", zero_time, @"toleranceBefore", zero_time, @"toleranceAfter", nil];
     [self.emitter emit:BCEventSeekTo withDetails:dict];
 }
 
-- (IBAction)doneButtonPressed:(id)sender {
+// TODO: Implement correct action for the done button
+- (IBAction)doneButtonPressed:(id)sender
+{
+    
 }
 
-- (IBAction)resizeButtonPressed:(id)sender {
+// TODO: Implement correct action for the resize button
+- (IBAction)resizeButtonPressed:(id)sender
+{
+    
 }
 
+/**
+ *  When the slider value changes incrementally update control time values
+ */
 -(void)sliderValueChanged:(UISlider *)sender
 {
     NSTimeInterval timePlayed_seconds = sender.value * CMTimeGetSeconds(self.duration);
@@ -73,14 +90,25 @@
     self.timeLeft.text = [@"-" stringByAppendingString:[VideoUtils makeTimeReadable:timeLeft_seconds]];
     
 }
+
+/**
+ * When user touched down on the slider, emit that slider has begin
+ */
 -(void)sliderTouchDown:(UISlider *)sender
 {
     [self.emitter emit:BCEventSliderBegin];
 }
+/**
+ * When slider is touched up emit that the slider has ended with the sender
+ */
 -(void)sliderTouchUp:(UISlider *)sender
 {
     [self.emitter emit:BCEventSliderEnd withDetails:[NSDictionary dictionaryWithObjectsAndKeys:sender, @"sender", nil]];
 }
+
+/**
+ * Utility method to handle reseting the timer for animations for hiding the controls
+ */
 -(void)handleTimer
 {
     if(self.timer.isValid)
@@ -92,6 +120,9 @@
     
 }
 
+/**
+ * When controls are hidden, emit the hide controls event
+ */
 -(void)hideControls
 {
     if(self.controlsView.alpha != 0.0){
@@ -99,6 +130,7 @@
         [self.emitter emit:BCEventHideControls];
     }
 }
+
 #pragma mark Initialization
 
 - (id)initWithEventEmitter:(BCEventEmitter *)eventEmitter view:(UIView *)view
@@ -111,6 +143,9 @@
     return self;
 }
 
+/**
+ *
+ */
 - (void) initializeControlView:(UIView *)view
 {
     //Load iOSLookALikeMovieControls
@@ -273,7 +308,7 @@
             //Progress bar
             weakself.scrubber.value = time / CMTimeGetSeconds(item.duration);
             
-            //Need this to do something with the buffer...
+            // TODO:  Implement buffer logic
             /*
             NSArray *loadedTimeRanges = [item loadedTimeRanges];
             CMTimeRange timeRange = [[loadedTimeRanges objectAtIndex:0] CMTimeRangeValue];

@@ -87,6 +87,11 @@
     return playlist.count;
 }
 
+#pragma mark Utility methods
+
+/**
+ * Utility method to take a number in milliseconds and make it readable
+ */
 -(NSString *)makeReadable:(NSNumber *)number
 {
     long time = number.longValue;
