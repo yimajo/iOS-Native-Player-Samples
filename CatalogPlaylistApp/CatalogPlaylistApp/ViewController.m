@@ -17,6 +17,7 @@
 {
     [super viewDidLoad];
     
+    // TODO: remove in dealloc 'namespace'
     //Set up notifications for understanding when the datasource is loaded
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(finishLoadingPlaylist:) name:@"PlaylistLoaded" object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(showSpinner:) name:@"PlaylistLoading" object:nil];
@@ -28,9 +29,10 @@
 /**
  * When the playlist is loaded, set the data source of the collection view
  */
--(void)finishLoadingPlaylist:(NSNotification *)notification
+- (void)finishLoadingPlaylist:(NSNotification *)notification
 {
-    if([[notification name] isEqualToString:@"PlaylistLoaded"]){
+    if ([[notification name] isEqualToString:@"PlaylistLoaded"])
+    {
         self.playlistView.dataSource = self.dataSource;
         [self hideSpinner];
     }
@@ -41,11 +43,13 @@
  */
 - (void)showSpinner:(NSNotification *)notification
 {
-    if(!self.spinner){
+    if (!self.spinner)
+    {
         self.spinner = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
         self.spinner.center = CGPointMake(self.view.frame.size.width / 2.0, self.view.frame.size.height / 2.0);
         [self.view addSubview:self.spinner];
     }
+    
     [self.spinner startAnimating];
 }
 
@@ -55,7 +59,8 @@
 
 - (void)hideSpinner
 {
-    if(self.spinner){
+    if (self.spinner)
+    {
         [self.spinner stopAnimating];
     }
 }
@@ -65,7 +70,7 @@
  */
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender
 {
-    if([[segue identifier] isEqualToString:@"showMovie"])
+    if ([[segue identifier] isEqualToString:@"showMovie"])
     {
         //Get the video from selected index
         NSIndexPath *selectedIndex = [[self.collectionView indexPathsForSelectedItems] objectAtIndex:0];

@@ -25,15 +25,13 @@
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *skipForwardButton;
 @property (strong, nonatomic) IBOutlet UIBarButtonItem *resizeButton;
 @property (strong, nonatomic) IBOutlet UISlider *volumeSlider;
-
+@property (strong, nonatomic) IBOutlet UIToolbar *topToolbar;
 
 - (IBAction)playPauseButtonPressed:(id)sender;
 - (IBAction)skipForwardButtonPressed:(id)sender;
 - (IBAction)skipBackwardsButtonPressed:(id)sender;
 - (IBAction)doneButtonPressed:(id)sender;
 - (IBAction)resizeButtonPressed:(id)sender;
-
-@property (strong, nonatomic) IBOutlet UIToolbar *topToolbar;
 
 @property (strong, nonatomic) UIBarButtonItem *doneButton;
 @property (strong, nonatomic) UIBarButtonItem *ratioButton;
@@ -48,4 +46,5 @@
 - (id)initWithEventEmitter:(BCEventEmitter *)eventEmitter view:(UIView *)view;
 - (void) applyTextStyles:(UILabel *)label;
 - (void) handleTimer;
+
 @end

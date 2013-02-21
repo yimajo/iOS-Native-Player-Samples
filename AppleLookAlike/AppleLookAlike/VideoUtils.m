@@ -21,7 +21,7 @@
     NSInteger minutes = (NSInteger)(time / 60.0f) % 60;
     NSInteger seconds = (NSInteger)time % 60;
     
-    NSString *ret = nil;
+    NSString *ret;
     if (hours > 0)
     {
         ret = [NSString stringWithFormat:@"%d:%.2d:%.2d", hours, minutes, seconds];

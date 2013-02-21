@@ -14,14 +14,13 @@
 
 @implementation PlaylistCollectionDataSource
 
-@synthesize playlist;
-
+// TODO: move configuring to new method
 -(id)initAndLoadPlaylist
 {
     if(self = [super init])
     {
         //Let everyone know we are loading a playlist...
-        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaylistLoading" object:self];
+        [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaylistLoading" object:nil];
         
         /**
          * Initialize a BCCatalog from you read token (make sure it is the URL Access)
@@ -34,7 +33,7 @@
          */
         [self.catalog findPlaylistByID:@"2149006311001" options:nil callBlock:^(BCError *error, BCPlaylist *bcPlaylist) {
             
-            if(!error)
+            if (!error)
             {
                 //Save a reference to the playlist, and notify that the playlist is loaded!
                 self.playlist = bcPlaylist;
@@ -52,6 +51,7 @@
             }
         }];
     }
+    
     return self;
 }
 
@@ -69,22 +69,26 @@
     UILabel *title = (UILabel *)[cell viewWithTag:2];
     UILabel *duration = (UILabel *)[cell viewWithTag:3];
     
-    BCVideo *video = [playlist.videos objectAtIndex:indexPath.item];
+    BCVideo *video = [self.playlist.videos objectAtIndex:indexPath.item];
+    
     //Title
     title.text = [video.properties objectForKey:@"name"];
+    
     //Duration
     NSNumber *videoDuration = [video.properties objectForKey:@"duration"];
     duration.text = [self makeReadable:videoDuration];
+    
     //Image
     NSURL *videoStill = [video.properties objectForKey:@"videoStillURL"];
     NSData *image = [[NSData alloc] initWithContentsOfURL:videoStill];
     imageView.image = [[UIImage alloc] initWithData:image];
+    
     return cell;
 }
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
 {
-    return playlist.count;
+    return self.playlist.count;
 }
 
 #pragma mark Utility methods

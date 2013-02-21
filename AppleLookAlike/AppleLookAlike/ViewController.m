@@ -17,11 +17,11 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	[self initializePlayerWithVideo];
+	[self configurePlayerWithVideo];
     
 }
 
-- (void)initializePlayerWithVideo
+- (void)configurePlayerWithVideo
 {
     //Create a video from URL
     BCVideo *video = [BCVideo videoWithURL:[NSURL URLWithString:@"http://8806a5d9324faf9f31fb-31a5eb2af178214dc2ca6ce50f208bb5.iosr.cf1.rackcdn.com/sled_-_handmade_goods_1280x720.mp4"] properties:nil];

@@ -21,15 +21,17 @@
     [self handleTimer];
     
     CGPoint location_bottom = [recognizer locationInView:self.bottomToolbar];
-    UIView *hit_bottom =[self.bottomToolbar hitTest:location_bottom withEvent:nil];
+    UIView *hit_bottom = [self.bottomToolbar hitTest:location_bottom withEvent:nil];
+    
     CGPoint location_top = [recognizer locationInView:self.topToolbar];
-    UIView *hit_top =[self.topToolbar hitTest:location_top withEvent:nil];
+    UIView *hit_top = [self.topToolbar hitTest:location_top withEvent:nil];
     
     if (hit_bottom || hit_top) {
         return;
     }
     
-    if(self.controlsView.alpha == 0.0){
+    if (self.controlsView.alpha == 0.0)
+    {
         [self.emitter emit:BCEventShowControls];
     }
     else
@@ -101,17 +103,17 @@
 /**
  * When slider is touched up emit that the slider has ended with the sender
  */
--(void)sliderTouchUp:(UISlider *)sender
+- (void)sliderTouchUp:(UISlider *)sender
 {
-    [self.emitter emit:BCEventSliderEnd withDetails:[NSDictionary dictionaryWithObjectsAndKeys:sender, @"sender", nil]];
+    [self.emitter emit:BCEventSliderEnd withDetails:[NSDictionary dictionaryWithObject:sender forKey:@"sender"]];
 }
 
 /**
  * Utility method to handle reseting the timer for animations for hiding the controls
  */
--(void)handleTimer
+- (void)handleTimer
 {
-    if(self.timer.isValid)
+    if (self.timer.isValid)
     {
         [self.timer invalidate];
     }
@@ -123,10 +125,10 @@
 /**
  * When controls are hidden, emit the hide controls event
  */
--(void)hideControls
+- (void)hideControls
 {
-    if(self.controlsView.alpha != 0.0){
-        
+    if (self.controlsView.alpha != 0.0)
+    {
         [self.emitter emit:BCEventHideControls];
     }
 }
@@ -135,7 +137,7 @@
 
 - (id)initWithEventEmitter:(BCEventEmitter *)eventEmitter view:(UIView *)view
 {
-    if(self = [super initWithEventEmitter:eventEmitter])
+    if (self = [super initWithEventEmitter:eventEmitter])
     {
         [self initializeControlView:view];
     }
@@ -144,7 +146,7 @@
 }
 
 /**
- *
+ * TODO: Pull
  */
 - (void) initializeControlView:(UIView *)view
 {
@@ -231,16 +233,11 @@
         }
     }];
     
-    //This isn't correct... keep it here for now...
-    [self.emitter on:BCEventReadyToPlay callBlock:^(BCEvent *event) {
-        [weakself.playPauseButton setImage:[UIImage imageNamed:@"pause.png"]];
-    }];
-    
     //Handle when the video did play by changing to pause and starting timer on progress once
     [self.emitter on:BCEventVideoDidPlay callBlock:^(BCEvent *event) {
         [weakself.playPauseButton setImage:[UIImage imageNamed:@"pause.png"]];
         
-        [self.emitter once:BCEventVideoProgress callBlock:^(BCEvent *event) {
+        [weakself.emitter once:BCEventVideoProgress callBlock:^(BCEvent *event) {
             [weakself handleTimer];
         }];
     }];
@@ -269,7 +266,7 @@
     //Handle when user starts scrubbing, make sure to invalidate timer
     [self.emitter on:BCEventSliderBegin callBlock:^(BCEvent *event) {
         weakself.isScrubbing = YES;
-        [self.timer invalidate];
+        [weakself.timer invalidate];
     }];
     
     //Handle the seek to when the slider is released
@@ -295,7 +292,8 @@
     [self.emitter on:BCEventVideoProgress callBlock:^(BCEvent *event) {
         
         //Don't update if user is scrubbing
-        if(!weakself.isScrubbing){
+        if (!weakself.isScrubbing)
+        {
             
             AVPlayerItem *item = [event.details objectForKey:@"playerItem"];
             NSTimeInterval time = CMTimeGetSeconds(item.currentTime);
@@ -318,8 +316,6 @@
             */
         }
     }];
-
 }
-
 
 @end
