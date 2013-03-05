@@ -10,7 +10,7 @@
 #import "BCEventLogger.h"
 #import "BCQueuePlayer.h"
 #import "BCVideo.h"
-#import "AppleControls.h"
+#import "EmulatedControls.h"
 
 @implementation ViewController
 
@@ -35,7 +35,7 @@
     [self.mainView addSubview:self.player.view];
     
     //Add UI Controls
-    self.controls = [[AppleControls alloc] initWithEventEmitter:self.player.playbackEmitter view:self.mainView];
+    self.controls = [[EmulatedControls alloc] initWithEventEmitter:self.player.playbackEmitter view:self.mainView];
     
     //Play on Player
     [self.player play];

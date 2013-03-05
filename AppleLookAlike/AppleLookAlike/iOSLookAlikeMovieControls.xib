@@ -13,6 +13,7 @@
 		<array key="IBDocument.IntegratedClassDependencies">
 			<string>IBProxyObject</string>
 			<string>IBUIBarButtonItem</string>
+			<string>IBUIProgressView</string>
 			<string>IBUISlider</string>
 			<string>IBUITapGestureRecognizer</string>
 			<string>IBUIToolbar</string>
@@ -35,7 +36,7 @@
 				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 			<object class="IBUIView" id="23553670">
-				<reference key="NSNextResponder"/>
+				<nil key="NSNextResponder"/>
 				<int key="NSvFlags">292</int>
 				<array class="NSMutableArray" key="NSSubviews">
 					<object class="IBUIView" id="795148853">
@@ -47,7 +48,6 @@
 								<int key="NSvFlags">266</int>
 								<string key="NSFrameSize">{440, 80}</string>
 								<reference key="NSSuperview" ref="795148853"/>
-								<reference key="NSWindow"/>
 								<reference key="NSNextKeyView" ref="234391076"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
@@ -117,14 +117,13 @@
 								<int key="NSvFlags">292</int>
 								<string key="NSFrame">{{66, 67}, {309, 23}}</string>
 								<reference key="NSSuperview" ref="795148853"/>
-								<reference key="NSWindow"/>
 								<string key="NSReuseIdentifierKey">_NS:9</string>
 								<bool key="IBUIOpaque">NO</bool>
 								<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 								<int key="IBUIContentHorizontalAlignment">0</int>
 								<int key="IBUIContentVerticalAlignment">0</int>
 								<float key="IBUIValue">0.5</float>
-								<object class="NSColor" key="IBUIMaximumTrackTintColor">
+								<object class="NSColor" key="IBUIMaximumTrackTintColor" id="155735159">
 									<int key="NSColorSpace">3</int>
 									<bytes key="NSWhite">MC42NjY2NjY2NjY3AA</bytes>
 								</object>
@@ -132,10 +131,9 @@
 						</array>
 						<string key="NSFrame">{{164, 863}, {440, 97}}</string>
 						<reference key="NSSuperview" ref="23553670"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="778286543"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
-						<object class="NSColor" key="IBUIBackgroundColor">
+						<object class="NSColor" key="IBUIBackgroundColor" id="1072524550">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MCAwAA</bytes>
 						</object>
@@ -146,7 +144,6 @@
 						<int key="NSvFlags">258</int>
 						<string key="NSFrameSize">{768, 44}</string>
 						<reference key="NSSuperview" ref="23553670"/>
-						<reference key="NSWindow"/>
 						<reference key="NSNextKeyView" ref="795148853"/>
 						<string key="NSReuseIdentifierKey">_NS:9</string>
 						<bool key="IBUIOpaque">NO</bool>
@@ -164,14 +161,12 @@
 					</object>
 				</array>
 				<string key="NSFrameSize">{768, 980}</string>
-				<reference key="NSSuperview"/>
-				<reference key="NSWindow"/>
 				<reference key="NSNextKeyView" ref="85828556"/>
 				<string key="NSReuseIdentifierKey">_NS:9</string>
 				<object class="NSColor" key="IBUIBackgroundColor">
 					<int key="NSColorSpace">3</int>
 					<bytes key="NSWhite">MSAwAA</bytes>
-					<object class="NSColorSpace" key="NSCustomColorSpace">
+					<object class="NSColorSpace" key="NSCustomColorSpace" id="261845063">
 						<int key="NSID">2</int>
 					</object>
 				</object>
@@ -180,6 +175,45 @@
 			</object>
 			<object class="IBUITapGestureRecognizer" id="401983295">
 				<bool key="IBUICancelsTouchesInView">NO</bool>
+			</object>
+			<object class="IBUIView" id="515039959">
+				<nil key="NSNextResponder"/>
+				<int key="NSvFlags">292</int>
+				<array class="NSMutableArray" key="NSSubviews">
+					<object class="IBUIProgressView" id="130523534">
+						<reference key="NSNextResponder" ref="515039959"/>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{0, 8}, {360, 9}}</string>
+						<reference key="NSSuperview" ref="515039959"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<float key="IBUIProgress">0.5</float>
+						<reference key="IBUIProgressTintColor" ref="155735159"/>
+						<reference key="IBUITrackTintColor" ref="1072524550"/>
+					</object>
+					<object class="IBUISlider" id="664690277">
+						<reference key="NSNextResponder" ref="515039959"/>
+						<int key="NSvFlags">290</int>
+						<string key="NSFrame">{{-2, 2}, {364, 23}}</string>
+						<reference key="NSSuperview" ref="515039959"/>
+						<string key="NSReuseIdentifierKey">_NS:9</string>
+						<bool key="IBUIOpaque">NO</bool>
+						<string key="targetRuntimeIdentifier">IBIPadFramework</string>
+						<int key="IBUIContentHorizontalAlignment">0</int>
+						<int key="IBUIContentVerticalAlignment">0</int>
+						<float key="IBUIValue">0.5</float>
+						<reference key="IBUIMinimumTrackTintColor" ref="155735159"/>
+					</object>
+				</array>
+				<string key="NSFrameSize">{360, 25}</string>
+				<string key="NSReuseIdentifierKey">_NS:9</string>
+				<object class="NSColor" key="IBUIBackgroundColor">
+					<int key="NSColorSpace">3</int>
+					<bytes key="NSWhite">MQA</bytes>
+					<reference key="NSCustomColorSpace" ref="261845063"/>
+				</object>
+				<string key="targetRuntimeIdentifier">IBIPadFramework</string>
 			</object>
 		</array>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
@@ -440,10 +474,29 @@
 						<reference key="object" ref="789015069"/>
 						<reference key="parent" ref="85828556"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">439</int>
+						<reference key="object" ref="515039959"/>
+						<array class="NSMutableArray" key="children">
+							<reference ref="130523534"/>
+							<reference ref="664690277"/>
+						</array>
+						<reference key="parent" ref="0"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">440</int>
+						<reference key="object" ref="130523534"/>
+						<reference key="parent" ref="515039959"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">441</int>
+						<reference key="object" ref="664690277"/>
+						<reference key="parent" ref="515039959"/>
+					</object>
 				</array>
 			</object>
 			<dictionary class="NSMutableDictionary" key="flattenedProperties">
-				<string key="-1.CustomClassName">AppleControls</string>
+				<string key="-1.CustomClassName">EmulatedControls</string>
 				<string key="-1.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="-2.CustomClassName">UIResponder</string>
 				<string key="-2.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
@@ -462,116 +515,17 @@
 				<string key="426.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="429.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 				<string key="430.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="439.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="440.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
+				<string key="441.IBPluginDependency">com.apple.InterfaceBuilder.IBCocoaTouchPlugin</string>
 			</dictionary>
 			<dictionary class="NSMutableDictionary" key="unlocalizedProperties"/>
 			<nil key="activeLocalization"/>
 			<dictionary class="NSMutableDictionary" key="localizations"/>
 			<nil key="sourceID"/>
-			<int key="maxID">436</int>
+			<int key="maxID">441</int>
 		</object>
-		<object class="IBClassDescriber" key="IBDocument.Classes">
-			<array class="NSMutableArray" key="referencedPartialClassDescriptions">
-				<object class="IBPartialClassDescription">
-					<string key="className">AppleControls</string>
-					<string key="superclassName">BCComponent</string>
-					<dictionary class="NSMutableDictionary" key="actions">
-						<string key="doneButtonPressed:">id</string>
-						<string key="handleTap:">UITapGestureRecognizer</string>
-						<string key="playPauseButtonPressed:">id</string>
-						<string key="resizeButtonPressed:">id</string>
-						<string key="skipBackwardsButtonPressed:">id</string>
-						<string key="skipForwardButtonPressed:">id</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="actionInfosByName">
-						<object class="IBActionInfo" key="doneButtonPressed:">
-							<string key="name">doneButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="handleTap:">
-							<string key="name">handleTap:</string>
-							<string key="candidateClassName">UITapGestureRecognizer</string>
-						</object>
-						<object class="IBActionInfo" key="playPauseButtonPressed:">
-							<string key="name">playPauseButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="resizeButtonPressed:">
-							<string key="name">resizeButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="skipBackwardsButtonPressed:">
-							<string key="name">skipBackwardsButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-						<object class="IBActionInfo" key="skipForwardButtonPressed:">
-							<string key="name">skipForwardButtonPressed:</string>
-							<string key="candidateClassName">id</string>
-						</object>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="outlets">
-						<string key="bottomToolbar">UIToolbar</string>
-						<string key="controlsView">UIView</string>
-						<string key="mainView">UIView</string>
-						<string key="playPauseButton">UIBarButtonItem</string>
-						<string key="resizeButton">UIBarButtonItem</string>
-						<string key="skipBackwardsButton">UIBarButtonItem</string>
-						<string key="skipForwardButton">UIBarButtonItem</string>
-						<string key="topToolbar">UIToolbar</string>
-						<string key="volumeSlider">UISlider</string>
-					</dictionary>
-					<dictionary class="NSMutableDictionary" key="toOneOutletInfosByName">
-						<object class="IBToOneOutletInfo" key="bottomToolbar">
-							<string key="name">bottomToolbar</string>
-							<string key="candidateClassName">UIToolbar</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="controlsView">
-							<string key="name">controlsView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="mainView">
-							<string key="name">mainView</string>
-							<string key="candidateClassName">UIView</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="playPauseButton">
-							<string key="name">playPauseButton</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="resizeButton">
-							<string key="name">resizeButton</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="skipBackwardsButton">
-							<string key="name">skipBackwardsButton</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="skipForwardButton">
-							<string key="name">skipForwardButton</string>
-							<string key="candidateClassName">UIBarButtonItem</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="topToolbar">
-							<string key="name">topToolbar</string>
-							<string key="candidateClassName">UIToolbar</string>
-						</object>
-						<object class="IBToOneOutletInfo" key="volumeSlider">
-							<string key="name">volumeSlider</string>
-							<string key="candidateClassName">UISlider</string>
-						</object>
-					</dictionary>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/AppleControls.h</string>
-					</object>
-				</object>
-				<object class="IBPartialClassDescription">
-					<string key="className">BCComponent</string>
-					<string key="superclassName">NSObject</string>
-					<object class="IBClassDescriptionSource" key="sourceIdentifier">
-						<string key="majorKey">IBProjectSource</string>
-						<string key="minorKey">./Classes/BCComponent.h</string>
-					</object>
-				</object>
-			</array>
-		</object>
+		<object class="IBClassDescriber" key="IBDocument.Classes"/>
 		<int key="IBDocument.localizationMode">0</int>
 		<string key="IBDocument.TargetRuntimeIdentifier">IBIPadFramework</string>
 		<bool key="IBDocument.PluginDeclaredDependenciesTrackSystemTargetVersion">YES</bool>

@@ -82,7 +82,7 @@
 		955205EE16CA8AC700AF6D35 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955205ED16CA8AC700AF6D35 /* AVFoundation.framework */; };
 		955205F016CA8ACC00AF6D35 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 955205EF16CA8ACC00AF6D35 /* QuartzCore.framework */; };
 		955205F216CA8B4B00AF6D35 /* iOSLookAlikeMovieControls.xib in Resources */ = {isa = PBXBuildFile; fileRef = 955205F116CA8B4B00AF6D35 /* iOSLookAlikeMovieControls.xib */; };
-		955205F516CA96B500AF6D35 /* AppleControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 955205F416CA96B500AF6D35 /* AppleControls.m */; };
+		955205F516CA96B500AF6D35 /* EmulatedControls.m in Sources */ = {isa = PBXBuildFile; fileRef = 955205F416CA96B500AF6D35 /* EmulatedControls.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -194,8 +194,8 @@
 		955205ED16CA8AC700AF6D35 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		955205EF16CA8ACC00AF6D35 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		955205F116CA8B4B00AF6D35 /* iOSLookAlikeMovieControls.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = iOSLookAlikeMovieControls.xib; sourceTree = "<group>"; };
-		955205F316CA96B500AF6D35 /* AppleControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AppleControls.h; sourceTree = "<group>"; };
-		955205F416CA96B500AF6D35 /* AppleControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AppleControls.m; sourceTree = "<group>"; };
+		955205F316CA96B500AF6D35 /* EmulatedControls.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = EmulatedControls.h; sourceTree = "<group>"; };
+		955205F416CA96B500AF6D35 /* EmulatedControls.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EmulatedControls.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -279,8 +279,8 @@
 				95216BDD16CD335300878EF8 /* VideoUtils.m */,
 				9552056216CA898C00AF6D35 /* ViewController.h */,
 				9552056316CA898C00AF6D35 /* ViewController.m */,
-				955205F316CA96B500AF6D35 /* AppleControls.h */,
-				955205F416CA96B500AF6D35 /* AppleControls.m */,
+				955205F316CA96B500AF6D35 /* EmulatedControls.h */,
+				955205F416CA96B500AF6D35 /* EmulatedControls.m */,
 			);
 			path = AppleLookAlike;
 			sourceTree = "<group>";
@@ -582,7 +582,7 @@
 				9552055116CA898C00AF6D35 /* main.m in Sources */,
 				9552055516CA898C00AF6D35 /* AppDelegate.m in Sources */,
 				9552056416CA898C00AF6D35 /* ViewController.m in Sources */,
-				955205F516CA96B500AF6D35 /* AppleControls.m in Sources */,
+				955205F516CA96B500AF6D35 /* EmulatedControls.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -6,13 +6,13 @@
 //  Copyright (c) 2013 Brightcove. All rights reserved.
 //
 
-#import "AppleControls.h"
+#import "EmulatedControls.h"
 #import "BCEvent.h"
 #import "BCEventEmitter.h"
 #import "BCRegisteringEventEmitter.h"
 #import "VideoUtils.h"
 
-@implementation AppleControls
+@implementation EmulatedControls
 
 #pragma mark control actions
 
@@ -63,7 +63,11 @@
 - (IBAction)skipBackwardsButtonPressed:(id)sender
 {
     NSValue *zero_time =  [NSValue valueWithCMTime:kCMTimeZero];
-    NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys: zero_time, @"time", zero_time, @"toleranceBefore", zero_time, @"toleranceAfter", nil];
+    NSDictionary *dict = @{
+                                @"time": zero_time,
+                                @"toleranceBefore": zero_time,
+                                @"toleranceAfter": zero_time
+                           };
     [self.emitter emit:BCEventSeekTo withDetails:dict];
 }
 
@@ -146,7 +150,7 @@
 }
 
 /**
- * TODO: Pull
+ * TODO: I dont like this implementation - Pull controls initialization out and handle it in the nib 
  */
 - (void) initializeControlView:(UIView *)view
 {
@@ -222,7 +226,7 @@
 
 -(void)setupEventListeners
 {
-    AppleControls * __weak weakself = self;
+    EmulatedControls * __weak weakself = self;
     
     //When duration changes, update the label
     [self.emitter on:BCEventVideoDurationChanged callBlock:^(BCEvent *event) {
@@ -277,9 +281,13 @@
         UISlider *slider = (UISlider *)[event.details objectForKey:@"sender"];
         double seconds = CMTimeGetSeconds(weakself.duration) * slider.value;
         CMTime time = CMTimeMake(seconds * 600.0, 600.0);
-    
         NSValue *tolerance = [NSValue valueWithCMTime:kCMTimeZero];
-        NSDictionary *dict = [NSDictionary dictionaryWithObjectsAndKeys:[NSValue valueWithCMTime:time], @"time", tolerance, @"toleranceBefore", tolerance, @"toleranceAfter", nil];
+        
+        NSDictionary *dict = @{
+                                    @"time": [NSValue valueWithCMTime:time],
+                                    @"toleranceBefore": tolerance,
+                                    @"toleranceAfter": tolerance
+                                };
         
         //Emit SeekTo, then after seeking, start timer again for hiding controls
         [weakself.emitter emit:BCEventSeekTo withDetails:dict thenCallBlock:^(BCEvent *event) {

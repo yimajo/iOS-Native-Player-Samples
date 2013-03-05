@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 @class BCQueuePlayer;
 @class BCVideo;
-@class AppleControls;
+@class EmulatedControls;
 
 @interface ViewController : UIViewController
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) BCQueuePlayer *player;
 @property (strong, nonatomic) BCVideo *video;
-@property (strong, nonatomic) AppleControls *controls;
+@property (strong, nonatomic) EmulatedControls *controls;
 
 @end

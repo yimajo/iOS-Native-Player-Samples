@@ -14,7 +14,7 @@
 
 @class BCEventEmitter;
 
-@interface AppleControls : BCComponent
+@interface EmulatedControls : BCComponent
 
 @property (strong, nonatomic) IBOutlet UIView *mainView;
 @property (strong, nonatomic) IBOutlet UIView *controlsView;
