@@ -22,16 +22,19 @@
         //Let everyone know we are loading a playlist...
         [[NSNotificationCenter defaultCenter] postNotificationName:@"PlaylistLoading" object:nil];
         
-        /**
+        /*
          * Initialize a BCCatalog from you read token (make sure it is the URL Access)
          * This can be found by going to https://videocloud.brightcove.com/admin/api
          */
         self.catalog = [[BCCatalog alloc] initWithToken:@"nFCuXstvl910WWpPnCeFlDTNrpXA5mXOO9GPkuTCoLKRyYpPF1ikig.."];
         
+        //Options:
+        NSDictionary *options = @{@"video.fields" : @"tags,cuePoints,geoFilterExclude"};
+        
         /*
          * Find a playlist by ID, this ID can be found in the video cloud interface, or you could use a reference ID
          */
-        [self.catalog findPlaylistByID:@"2149006311001" options:nil callBlock:^(BCError *error, BCPlaylist *bcPlaylist) {
+        [self.catalog findPlaylistByID:@"2149006311001" options:options callBlock:^(BCError *error, BCPlaylist *bcPlaylist) {
             
             if (!error)
             {

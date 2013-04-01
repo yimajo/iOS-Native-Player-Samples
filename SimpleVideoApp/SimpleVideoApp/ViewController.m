@@ -28,9 +28,13 @@
     BCVideo *movVideo = [BCVideo videoWithURL:[NSURL URLWithString:@"http://cf9c36303a9981e3e8cc-31a5eb2af178214dc2ca6ce50f208bb5.r97.cf1.rackcdn.com/craigslistjoe-tlr1_h480p.mov"] properties:nil];
     
     //HLS Video
-    BCVideo *hlsVideo = [BCVideo videoWithURL:[NSURL URLWithString:@"http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8"] properties:nil];
+    BCVideo *hlsVideo = [BCVideo videoWithURL:[NSURL URLWithString:@"http://bcoveliveios-i.akamaihd.net/hls/live/205917/zprodwindow24h/master.m3u8"] properties:nil];
     
-    videos = [NSArray arrayWithObjects:mp4Video, movVideo, hlsVideo, nil];
+    videos = [NSArray arrayWithObjects:
+              //mp4Video,
+              //movVideo,
+              hlsVideo,
+              nil];
     
     [self configurePlayer:videos];
     
