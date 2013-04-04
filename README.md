@@ -8,4 +8,7 @@ Sample List
 + __SimpleVideoApp__ - A simple video app to show how to use the [BCQueuePlayer](http://docs.brightcove.com/en/bc-ios-sdk/Classes/BCQueuePlayer.html) and [BCUIControls](http://docs.brightcove.com/en/bc-ios-sdk/Classes/BCUIControls.html).  This sample also shows how to queue up different video types (mp4, mov, HLS).  Supplemental documentation can be found [here](http://support.brightcove.com/en/video-cloud/docs/brightcove-video-cloud-player-sdk-ios-tutorial)
 + __CustomUIControlsApp__ - An app to show how to create custom UI controls for the BCQueuePlayer. This app shows the basics of using an event emitter and how to create your own video components or overlays with [BCComponent](http://docs.brightcove.com/en/bc-ios-sdk/Classes/BCComponent.html)
 + __CatalogPlaylistApp__ - A sample app that shows how to use [BCCatalog](http://docs.brightcove.com/en/bc-ios-sdk/Classes/BCCatalog.html) to retrieve videos from Video Cloud. This app also shows how to use a playlist with a [UICollectionView](http://developer.apple.com/library/ios/#documentation/uikit/reference/UICollectionView_class/Reference/Reference.html)
-+ __AppleLookAlike__ - A sample app that have emulated Apple's default controls for their video playing classes for ease of use and customizations. 
++ __AppleLookAlike__ - A sample app that shows emulated Apple's default controls for their video playing classes for ease of use and customizations. 
++ __LoadingIndicatorSampleApp__ - A sample app that shows how you could use a UIActivityIndicatorView with BCComponent to let the viewer know that you are buffering the video when it starts
+
+If you have any feedback or suggestions please feel free to reach out to me on [twitter](https://twitter.com/omgitstom) 
