@@ -12,6 +12,8 @@
 #import "BCVideo.h"
 #import "BCError.h"
 
+#import "BCVideo+SDKDictionaryHelper.h"
+
 @implementation PlaylistCollectionDataSource
 
 // TODO: move configuring to new method
@@ -75,14 +77,14 @@
     BCVideo *video = [self.playlist.videos objectAtIndex:indexPath.item];
     
     //Title
-    title.text = [video.properties objectForKey:@"name"];
+    title.text = [video getName];
     
     //Duration
-    NSNumber *videoDuration = [video.properties objectForKey:@"duration"];
+    NSNumber *videoDuration = [video getDuration];
     duration.text = [self makeReadable:videoDuration];
     
     //Image
-    NSURL *videoStill = [video.properties objectForKey:@"videoStillURL"];
+    NSURL *videoStill = [video getVideoStillURL];
     NSData *image = [[NSData alloc] initWithContentsOfURL:videoStill];
     imageView.image = [[UIImage alloc] initWithData:image];
     

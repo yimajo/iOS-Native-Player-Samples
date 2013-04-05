@@ -20,6 +20,7 @@
 		955D242016C2E708006ACF43 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 955D241F16C2E708006ACF43 /* MainStoryboard.storyboard */; };
 		955D242216C2E7A2006ACF43 /* brightcove_iphone.png in Resources */ = {isa = PBXBuildFile; fileRef = 955D242116C2E7A2006ACF43 /* brightcove_iphone.png */; };
 		95630BA116C4573C00577702 /* PlaylistCollectionDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 95630BA016C4573C00577702 /* PlaylistCollectionDataSource.m */; };
+		95AEE519170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = 95AEE518170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.m */; };
 		95C452B916C94220002EF769 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 95C452B816C94220002EF769 /* MovieViewController.m */; };
 		95C4531816C96371002EF769 /* BCAnalytics.html in Resources */ = {isa = PBXBuildFile; fileRef = 95C452CA16C96371002EF769 /* BCAnalytics.html */; };
 		95C4531916C96371002EF769 /* BCCatalog.html in Resources */ = {isa = PBXBuildFile; fileRef = 95C452CB16C96371002EF769 /* BCCatalog.html */; };
@@ -91,6 +92,8 @@
 		955D242116C2E7A2006ACF43 /* brightcove_iphone.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = brightcove_iphone.png; path = ../brightcove_iphone.png; sourceTree = "<group>"; };
 		95630B9F16C4573C00577702 /* PlaylistCollectionDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaylistCollectionDataSource.h; sourceTree = "<group>"; };
 		95630BA016C4573C00577702 /* PlaylistCollectionDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaylistCollectionDataSource.m; sourceTree = "<group>"; };
+		95AEE517170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "BCVideo+SDKDictionaryHelper.h"; path = "../BCVideo+SDKDictionaryHelper.h"; sourceTree = "<group>"; };
+		95AEE518170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "BCVideo+SDKDictionaryHelper.m"; path = "../BCVideo+SDKDictionaryHelper.m"; sourceTree = "<group>"; };
 		95C452B716C94220002EF769 /* MovieViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieViewController.h; sourceTree = "<group>"; };
 		95C452B816C94220002EF769 /* MovieViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieViewController.m; sourceTree = "<group>"; };
 		95C452CA16C96371002EF769 /* BCAnalytics.html */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.html; path = BCAnalytics.html; sourceTree = "<group>"; };
@@ -222,6 +225,7 @@
 		955D23FF16C2E602006ACF43 /* CatalogPlaylistApp */ = {
 			isa = PBXGroup;
 			children = (
+				95AEE51A170F46AC001234C3 /* Categories */,
 				95C452C616C96319002EF769 /* Assets */,
 				955D240016C2E602006ACF43 /* Supporting Files */,
 				955D240816C2E602006ACF43 /* AppDelegate.h */,
@@ -249,6 +253,15 @@
 				955D240F16C2E602006ACF43 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		95AEE51A170F46AC001234C3 /* Categories */ = {
+			isa = PBXGroup;
+			children = (
+				95AEE517170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.h */,
+				95AEE518170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.m */,
+			);
+			name = Categories;
 			sourceTree = "<group>";
 		};
 		95C452C616C96319002EF769 /* Assets */ = {
@@ -519,6 +532,7 @@
 				955D241916C2E602006ACF43 /* ViewController.m in Sources */,
 				95630BA116C4573C00577702 /* PlaylistCollectionDataSource.m in Sources */,
 				95C452B916C94220002EF769 /* MovieViewController.m in Sources */,
+				95AEE519170E0A12001234C3 /* BCVideo+SDKDictionaryHelper.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
