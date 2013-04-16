@@ -31,8 +31,8 @@
     BCVideo *hlsVideo = [BCVideo videoWithURL:[NSURL URLWithString:@"http://bcoveliveios-i.akamaihd.net/hls/live/205917/zprodwindow24h/master.m3u8"] properties:nil];
     
     videos = [NSArray arrayWithObjects:
-              //mp4Video,
-              //movVideo,
+              mp4Video,
+              movVideo,
               hlsVideo,
               nil];
     
