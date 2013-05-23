@@ -31,7 +31,16 @@
     
     //Play on player
     [self.player play];
-	 
+    
+    ////////////////////////////////////////////////////
+    //AirPlayが有効かどうかをairPlayVideoActiveメソッドを実行して判断
+    ////////////////////////////////////////////////////
+    //
+    [self.player airPlayVideoActive];
+    //
+    //airPlayVideoActiveメソッドは例外が発生し正常に実行できない。例外は下記
+    //2013-05-23 11:26:41.762 CatalogPlaylistApp[229:907] *** Terminating app due to uncaught exception 'NSInvalidArgumentException', reason: '-[BCQueueDisplay airPlayVideoActive]: unrecognized selector sent to instance 0x1d574b40'
+    ////////////////////////////////////////////////////
 }
 
 @end
